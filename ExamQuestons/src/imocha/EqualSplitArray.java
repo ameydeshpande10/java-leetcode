@@ -5,8 +5,8 @@ import java.util.List;
 
 public class EqualSplitArray {
     public static void main(String[] args) {
-        int n = 7;
-        int[] arr = new int[] { 1, 2, 2, 1 };
+        int n = 5;
+        int[] arr = new int[] { 1, 2, 1, 4, 5 };
         System.out.println(equalSplitArrayIndex(arr, n));
     }
 

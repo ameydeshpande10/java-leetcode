@@ -12,7 +12,7 @@ public class CheckiftheSentenceIsPangram {
     }
 
     public static boolean checkIfPangram(String sentence) {
-        if (sentence.length() >= 26) {
+        if (sentence.length() < 26) {
             return false;
         }
         String alphabets = "abcdefghijklmnopqrstuvwxyz";
