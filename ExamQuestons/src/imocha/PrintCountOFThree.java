@@ -14,6 +14,39 @@ public class PrintCountOFThree {
         // System.out.println(countOfThree(n));
     }
 
+    public static long solve1(String s, int n) {
+
+        char[] v = new char[26];
+        // vector<long> v(26,0);
+
+        for (char c : s.toCharArray()) {
+            int p = c - 'a';
+            v[p] += (p == 0 ? 1 : v[p - 1]);
+        }
+        return v[25];
+
+    }
+
+    public static long solve(String s, int n) {
+        final long mod = (long) (1e9) + 7;
+        char a[] = s.toCharArray();
+        long dp[][] = new long[n + 1][27];
+        for (int i = 0; i <= n; i++)
+            dp[i][0] = 1;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= 26; j++) {
+                dp[i][j] = (dp[i][j] + dp[i - 1][j]) % mod;
+                int val = a[i - 1] - 'a';
+                if (val == j - 1) {
+                    dp[i][j] = (dp[i][j] + dp[i - 1][j - 1]) % mod;
+                }
+            }
+        }
+
+        return dp[n][26];
+
+    }
+
     public static int countOfThree(int n) {
 
         int count = 0;
